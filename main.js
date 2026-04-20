@@ -599,11 +599,11 @@ function initCardTilt() {
 ───────────────────────────────────────── */
 function initTypingEffect() {
   const phrases = [
-    'Full-Stack Developer & UI Designer',
-    'React & Node.js Engineer',
-    'UI/UX Product Designer',
-    'Open Source Contributor',
-    'AI Integration Specialist',
+    'Flutter Developer & Mobile App Engineer',
+    'Software Engineering Student',
+    'Java, Python, and C++ Learner',
+    'Web Developer (HTML, CSS, JavaScript)',
+    'Figma UI Design Enthusiast',
   ];
   const target = $('.hero-eyebrow');
   if (!target) return;
