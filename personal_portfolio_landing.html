@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>alex.dev — Personal Portfolio</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f5f4f0;
+      --color-text-primary: #1a1a1a;
+      --color-text-secondary: #666660;
+      --color-border-tertiary: rgba(0,0,0,0.12);
+      --color-border-secondary: rgba(0,0,0,0.25);
+      --border-radius-md: 8px;
+      --border-radius-lg: 12px;
+      --font-sans: system-ui, -apple-system, sans-serif;
+    }
+
+    body { font-family: var(--font-sans); color: var(--color-text-primary); background: var(--color-background-primary); }
+
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 2rem;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      background: var(--color-background-primary);
+      position: sticky; top: 0; z-index: 10;
+    }
+    .nav-logo { font-size: 18px; font-weight: 500; letter-spacing: -0.5px; }
+    .nav-logo span { color: #7F77DD; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { font-size: 14px; color: var(--color-text-secondary); text-decoration: none; }
+    .nav-links a:hover { color: var(--color-text-primary); }
+    .nav-cta {
+      background: #7F77DD; color: #fff; border: none; border-radius: 20px;
+      padding: 8px 20px; font-size: 13px; font-weight: 500; cursor: pointer;
+    }
+    .nav-cta:hover { background: #534AB7; }
+
+    .hero {
+      padding: 5rem 2rem 4rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+      max-width: 900px; margin: 0 auto;
+    }
+    .hero-tag {
+      display: inline-block; background: #EEEDFE; color: #534AB7;
+      border-radius: 20px; padding: 4px 14px; font-size: 12px; font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .hero h1 { font-size: 40px; font-weight: 500; line-height: 1.1; letter-spacing: -1px; margin-bottom: 1rem; }
+    .hero h1 .accent { color: #7F77DD; }
+    .hero-sub { font-size: 15px; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: 1.5rem; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      background: #7F77DD; color: #fff; border: none; border-radius: 24px;
+      padding: 10px 22px; font-size: 14px; font-weight: 500; cursor: pointer;
+    }
+    .btn-outline {
+      background: transparent; color: var(--color-text-primary);
+      border: 0.5px solid var(--color-border-secondary); border-radius: 24px;
+      padding: 10px 22px; font-size: 14px; cursor: pointer;
+    }
+    .hero-visual { position: relative; height: 300px; }
+    .avatar-ring {
+      width: 200px; height: 200px; border-radius: 50%;
+      background: linear-gradient(135deg, #EEEDFE 0%, #AFA9EC 100%);
+      position: absolute; top: 30px; left: 50%; transform: translateX(-50%);
+      display: flex; align-items: center; justify-content: center; font-size: 64px;
+    }
+    .badge-float {
+      position: absolute; border-radius: 12px; padding: 8px 14px; font-size: 12px; font-weight: 500;
+    }
+    .badge-float.b1 { top: 10px; right: 0; background: #FAECE7; color: #993C1D; border: 0.5px solid #F0997B; }
+    .badge-float.b2 { bottom: 40px; left: 0; background: #E1F5EE; color: #0F6E56; border: 0.5px solid #5DCAA5; }
+    .badge-float.b3 { bottom: 10px; right: 10px; background: #E6F1FB; color: #185FA5; border: 0.5px solid #85B7EB; }
+
+    .skills-strip {
+      background: #7F77DD; padding: 1rem 2rem;
+      display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+    }
+    .skills-strip span { color: #fff; font-size: 13px; font-weight: 500; opacity: 0.9; }
+
+    .section { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
+    .section-label { font-size: 12px; font-weight: 500; color: #7F77DD; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .section-title { font-size: 28px; font-weight: 500; margin-bottom: 2rem; letter-spacing: -0.5px; }
+
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .project-card {
+      border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg);
+      padding: 1.25rem; background: var(--color-background-primary); cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    .project-card:hover { border-color: #7F77DD; }
+    .project-thumb {
+      height: 110px; border-radius: 8px; margin-bottom: 1rem;
+      display: flex; align-items: center; justify-content: center; font-size: 28px;
+    }
+    .project-thumb.p1 { background: #EEEDFE; }
+    .project-thumb.p2 { background: #E1F5EE; }
+    .project-thumb.p3 { background: #FAECE7; }
+    .project-title { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+    .project-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+    .project-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+    .tag {
+      font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px;
+      background: var(--color-background-secondary); color: var(--color-text-secondary);
+    }
+
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    .about-text { font-size: 15px; color: var(--color-text-secondary); line-height: 1.8; }
+    .stats-list { display: flex; flex-direction: column; gap: 12px; }
+    .stat-item {
+      display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+      background: var(--color-background-secondary); border-radius: var(--border-radius-md);
+    }
+    .stat-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .stat-label { font-size: 13px; color: var(--color-text-secondary); }
+    .stat-val { font-size: 18px; font-weight: 500; margin-bottom: 2px; }
+
+    .contact-box {
+      background: #7F77DD; border-radius: var(--border-radius-lg); padding: 3rem 2rem;
+      text-align: center; color: #fff; margin: 0 2rem 4rem;
+    }
+    .contact-box h2 { font-size: 26px; font-weight: 500; margin-bottom: 0.5rem; }
+    .contact-box p { font-size: 15px; opacity: 0.85; margin-bottom: 1.5rem; }
+    .contact-btn {
+      background: #fff; color: #534AB7; border: none; border-radius: 24px;
+      padding: 12px 28px; font-size: 14px; font-weight: 500; cursor: pointer;
+    }
+    .contact-socials { display: flex; gap: 1rem; justify-content: center; margin-top: 1.2rem; }
+    .social-pill {
+      background: rgba(255,255,255,0.15); color: #fff; border: none;
+      border-radius: 20px; padding: 6px 16px; font-size: 12px; cursor: pointer;
+    }
+
+    .footer {
+      padding: 1.2rem 2rem;
+      border-top: 0.5px solid var(--color-border-tertiary);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-text { font-size: 13px; color: var(--color-text-secondary); }
+
+    @media (max-width: 600px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-logo">alex<span>.</span>dev</div>
+    <div class="nav-links">
+      <a href="#">Work</a><a href="#">About</a><a href="#">Blog</a>
+    </div>
+    <button class="nav-cta">Hire me ↗</button>
+  </nav>
+
+  <div class="hero">
+    <div>
+      <div class="hero-tag">Available for work</div>
+      <h1>I design & build digital <span class="accent">experiences.</span></h1>
+      <p class="hero-sub">Full-stack developer and UI designer crafting clean, fast, and beautiful products for startups and brands.</p>
+      <div class="hero-btns">
+        <button class="btn-primary">View my work</button>
+        <button class="btn-outline">Download CV</button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="avatar-ring">👩‍💻</div>
+      <div class="badge-float b1">5+ years exp</div>
+      <div class="badge-float b2">20+ projects</div>
+      <div class="badge-float b3">Open to remote</div>
+    </div>
+  </div>
+
+  <div class="skills-strip">
+    <span>React</span><span>TypeScript</span><span>Node.js</span>
+    <span>Figma</span><span>Python</span><span>PostgreSQL</span><span>AWS</span>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Selected work</div>
+    <div class="section-title">Recent projects</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-thumb p1">🛍️</div>
+        <div class="project-title">ShopFlow</div>
+        <div class="project-desc">E-commerce platform with real-time inventory and AI-powered recommendations.</div>
+        <div class="project-tags">
+          <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">AI</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb p2">📊</div>
+        <div class="project-title">DataViz Pro</div>
+        <div class="project-desc">Analytics dashboard for SaaS teams — beautiful charts, real-time updates.</div>
+        <div class="project-tags">
+          <span class="tag">D3.js</span><span class="tag">TypeScript</span><span class="tag">AWS</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb p3">🎨</div>
+        <div class="project-title">Palette UI</div>
+        <div class="project-desc">Open-source design system used by 800+ developers worldwide.</div>
+        <div class="project-tags">
+          <span class="tag">Figma</span><span class="tag">CSS</span><span class="tag">OSS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top: 0;">
+    <div class="section-label">About me</div>
+    <div class="section-title">A little background</div>
+    <div class="about-grid">
+      <p class="about-text">I'm a full-stack developer with a strong eye for design. I love turning complex problems into elegant, user-friendly products. When I'm not coding, I'm hiking, sketching interfaces, or brewing way too much coffee.</p>
+      <div class="stats-list">
+        <div class="stat-item">
+          <div class="stat-dot" style="background:#7F77DD;"></div>
+          <div>
+            <div class="stat-val">5+ years</div>
+            <div class="stat-label">professional experience</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-dot" style="background:#1D9E75;"></div>
+          <div>
+            <div class="stat-val">20+ projects</div>
+            <div class="stat-label">shipped to production</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-dot" style="background:#D85A30;"></div>
+          <div>
+            <div class="stat-val">3 continents</div>
+            <div class="stat-label">clients worked with</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-box">
+    <h2>Let's build something great.</h2>
+    <p>Have a project in mind? I'd love to hear about it.</p>
+    <button class="contact-btn">Get in touch ↗</button>
+    <div class="contact-socials">
+      <button class="social-pill">GitHub</button>
+      <button class="social-pill">LinkedIn</button>
+      <button class="social-pill">Twitter</button>
+      <button class="social-pill">Dribbble</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <span class="footer-text">© 2026 alex.dev</span>
+    <span class="footer-text">Designed & built with care</span>
+  </footer>
+
+</body>
+</html>
