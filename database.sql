@@ -21,9 +21,9 @@ CREATE TABLE IF NOT EXISTS settings (
 
 INSERT INTO settings (`key`, value) VALUES
   ('site_name',        'shabaz yassen'),
-  ('site_tagline',     'Full-Stack Developer & UI Designer'),
-  ('site_email',       'alex@alexchen.dev'),
-  ('site_location',    'San Francisco, CA'),
+  ('site_tagline',     'Software Engineering Student'),
+  ('site_email',       'shabazyassen@gmail.com'),
+  ('site_location',    'Erbil, Kurdistan Region, Iraq'),
   ('site_available',   '1'),
   ('site_github',      'https://github.com/alexchen'),
   ('site_linkedin',    'https://linkedin.com/in/alexchen'),

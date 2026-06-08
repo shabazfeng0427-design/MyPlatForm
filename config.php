@@ -6,7 +6,7 @@
 
 // ─── Database ────────────────────────────────────────────────
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'myplatform');
+define('DB_NAME', 'portfolio_db');
 define('DB_USER', 'root');          // ← change to your DB username
 define('DB_PASS', '');              // ← change to your DB password
 define('DB_CHARSET', 'utf8mb4');

@@ -34,7 +34,7 @@ $csrf = csrfToken();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><?= e($cfg['site_name'] ?? 'shabaz yassen') ?> — Creative Developer &amp; Designer</title>
+  <title><?= e($cfg['site_name'] ?? 'shabaz yassen') ?> — Software Engineering Student</title>
   <meta name="description" content="<?= e($cfg['site_tagline'] ?? '') ?>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -99,9 +99,9 @@ $csrf = csrfToken();
   <nav class="nav-center">
     <a href="#work"         class="nav-link">Work</a>
     <a href="#about"        class="nav-link">About</a>
-    <a href="#services"     class="nav-link">Services</a>
+    <a href="#services"     class="nav-link">Skills</a>
     <a href="#process"      class="nav-link">Process</a>
-    <a href="#testimonials" class="nav-link">Clients</a>
+    <a href="#testimonials" class="nav-link">Experience</a>
     <a href="#blog"         class="nav-link">Blog</a>
     <a href="#contact"      class="nav-link">Contact</a>
   </nav>
@@ -109,7 +109,7 @@ $csrf = csrfToken();
     <?php if (!empty($cfg['site_available']) && $cfg['site_available'] == '1'): ?>
     <span class="nav-status"><span class="status-dot"></span>Available</span>
     <?php endif; ?>
-    <a href="#contact" class="nav-cta">Hire Me ↗</a>
+    <a href="#contact" class="nav-cta">Contact Me ↗</a>
   </div>
   <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </header>
@@ -119,12 +119,12 @@ $csrf = csrfToken();
   <div class="mobile-menu">
     <a href="#work"         class="m-link">Work</a>
     <a href="#about"        class="m-link">About</a>
-    <a href="#services"     class="m-link">Services</a>
+    <a href="#services"     class="m-link">Skills</a>
     <a href="#process"      class="m-link">Process</a>
-    <a href="#testimonials" class="m-link">Clients</a>
+    <a href="#testimonials" class="m-link">Experience</a>
     <a href="#blog"         class="m-link">Blog</a>
     <a href="#contact"      class="m-link">Contact</a>
-    <a href="#contact" class="m-cta">Hire Me ↗</a>
+    <a href="#contact" class="m-cta">Contact Me ↗</a>
   </div>
 </div>
 
@@ -137,18 +137,18 @@ $csrf = csrfToken();
       <span class="mono">01 /</span> <?= e($cfg['site_tagline'] ?? 'Full-Stack Developer & UI Designer') ?>
     </div>
     <h1 class="hero-title fade-up">
-      <span class="title-line">CRAFTING</span>
-      <span class="title-line accent">BOLD</span>
-      <span class="title-line">DIGITAL</span>
-      <span class="title-line outline">WORLDS.</span>
+      <span class="title-line">SHABAZ</span>
+      <span class="title-line accent">YASSEN</span>
+      <span class="title-line">QADR</span>
+      <span class="title-line outline">PORTFOLIO</span>
     </h1>
     <p class="hero-desc fade-up">
       <?= e($cfg['hero_subtitle'] ?? 'I design and engineer high-performance web experiences.') ?><br/>
-      Based in <?= e($cfg['site_location'] ?? 'San Francisco') ?> — working globally.
+      Based in <?= e($cfg['site_location'] ?? 'San Francisco') ?> — Based in Erbil, Kurdistan Region, Iraq.
     </p>
     <div class="hero-actions fade-up">
-      <a href="#work" class="btn-glow">Explore Work ↓</a>
-      <a href="#contact" class="btn-outline-hero">Let's Talk →</a>
+      <a href="#work" class="btn-glow">View Projects ↓</a>
+      <a href="#contact" class="btn-outline-hero">Contact Me →</a>
       <a href="#" class="btn-text-link">↓ Download CV</a>
     </div>
     <div class="hero-scroll-hint fade-up">
@@ -159,9 +159,9 @@ $csrf = csrfToken();
   <div class="hero-stats fade-up">
     <div class="hstat"><span class="hstat-num counter" data-target="<?= count($projects) ?>">0</span><span class="hstat-suf">+</span><span class="hstat-lbl">Projects</span></div>
     <div class="hstat-div"></div>
-    <div class="hstat"><span class="hstat-num counter" data-target="5">0</span><span class="hstat-suf">yr</span><span class="hstat-lbl">Experience</span></div>
+    <div class="hstat"><span class="hstat-num counter" data-target="1">0</span><span class="hstat-suf">+</span><span class="hstat-lbl">Mobile Apps</span></div>
     <div class="hstat-div"></div>
-    <div class="hstat"><span class="hstat-num counter" data-target="98">0</span><span class="hstat-suf">%</span><span class="hstat-lbl">Satisfaction</span></div>
+    <div class="hstat"><span class="hstat-num counter" data-target="10">0</span><span class="hstat-suf">+</span><span class="hstat-lbl">Skills</span></div>
     <div class="hstat-div"></div>
     <div class="hstat"><span class="hstat-num counter" data-target="<?= count($testimonials) ?>">0</span><span class="hstat-suf">★</span><span class="hstat-lbl">Reviews</span></div>
   </div>
@@ -308,7 +308,7 @@ $csrf = csrfToken();
 <section class="section sec-services" id="services">
   <div class="container">
     <div class="sec-head reveal">
-      <span class="sec-tag mono">04 / Services</span>
+      <span class="sec-tag mono">04 / Skills</span>
       <h2 class="sec-title">What I can do<br/><em>for you.</em></h2>
     </div>
     <div class="services-grid">
@@ -533,11 +533,11 @@ $csrf = csrfToken();
         <div class="fnav-col">
           <div class="fnav-label mono">Navigation</div>
           <a href="#work">Work</a><a href="#about">About</a>
-          <a href="#services">Services</a><a href="#process">Process</a>
+          <a href="#services">Skills</a><a href="#process">Process</a>
         </div>
         <div class="fnav-col">
           <div class="fnav-label mono">More</div>
-          <a href="#testimonials">Clients</a><a href="#blog">Blog</a>
+          <a href="#testimonials">Experience</a><a href="#blog">Blog</a>
           <a href="#contact">Contact</a><a href="#">Resume ↗</a>
         </div>
         <div class="fnav-col">
